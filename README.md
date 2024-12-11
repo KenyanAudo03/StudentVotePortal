@@ -13,7 +13,7 @@ Follow these steps to get the project up and running on your local machine.
 
 ### Prerequisites
 
-- Python 3.7 or later
+- Python 3 or later
 - A Gmail account for sending emails via Flask-Mail
 - Virtual environment (optional but recommended)
 
