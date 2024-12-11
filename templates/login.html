@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Students Associations Elections Portal</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/login.css') }}"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://vote.uonbi.ac.ke/theme/image.php/fordson/theme/1733814252/favicon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-form">
+        <h2>Students Associations Elections Portal</h2>
+
+        {% if error %}
+        <div class="error__message">
+          <p class="error">{{ error }}</p>
+        </div>
+        {% endif %}
+
+        <h3>Sign In</h3>
+
+        <!-- Updated form -->
+        <form action="/" method="POST">
+          <div class="form__elements">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              placeholder="Username"
+              name="username"
+              required
+              autofocus
+            />
+            <label for="password">Password</label>
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              required
+            />
+          </div>
+          <button type="submit">Log in</button>
+          <!-- The login button should be inside the form -->
+        </form>
+
+        <p class="forgot__pass">Forgotten your username or password?</p>
+      </div>
+
+      <div class="banner">
+        <img
+          src="{{ url_for('static', filename='images/voting_bannner.jpg') }}"
+          alt="UNSA Elections 2020"
+        />
+      </div>
+    </div>
+
+    <footer>
+      <div class="right__side">Independent Electoral Commission</div>
+      <div class="contact__center">
+        <p class="email__address">
+          <i class="fas fa-envelope" style="margin-top: 0px"></i
+          ><span>econhelp@uonbi.coke</span>
+        </p>
+      </div>
+      <div class="about">
+        <p>© UNSA2024 | University of Nairobi | All Rights Reserved</p>
+      </div>
+    </footer>
+  </body>
+
+  <script>
+    // Add the click functionality for each email address
+    document
+      .querySelectorAll(".contact__center .email__address")
+      .forEach(function (element) {
+        element.addEventListener("click", function (event) {
+          event.stopPropagation(); // Prevent the click from bubbling to the document
+          if (!this.classList.contains("active")) {
+            document
+              .querySelectorAll(".contact__center .email__address.active")
+              .forEach(function (activeElement) {
+                activeElement.classList.remove("active");
+              });
+            this.classList.add("active");
+          }
+        });
+      });
+
+    // Add an event listener to the document to remove the 'active' class when clicking outside
+    document.addEventListener("click", function () {
+      document
+        .querySelectorAll(".contact__center .email__address.active")
+        .forEach(function (activeElement) {
+          activeElement.classList.remove("active");
+        });
+    });
+  </script>
+</html>
